@@ -23,7 +23,7 @@ function App() {
         <Header />
         <main className="main-content" style={{ padding: '20px', paddingBottom: '60px' }}>
           <Routes>
-            <Route path="/" element={<Home vagas={vagas} empresas={empresas} />} />
+            <Route path="/" element={<Home vagas={vagas} empresas={empresas} candidatos={candidatos} candidaturas={candidaturas} />} />
             <Route path="/vagas" element={<Vagas vagas={vagas} setVagas={setVagas} empresas={empresas} />} />
             <Route path="/vagas/editar/:id" element={<EditarVaga vagas={vagas} setVagas={setVagas} empresas={empresas} />} />
             <Route path="/empresas" element={<Empresas empresas={empresas} setEmpresas={setEmpresas} />} />

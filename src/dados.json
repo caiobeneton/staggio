@@ -1,11 +1,21 @@
 {
   "empresas": [
     { "id": 1, "nome": "Tech Corp", "setor": "Tecnologia", "logo": "/imagens/logo-tech.png" },
-    { "id": 2, "nome": "Saúde Plus", "setor": "Saúde", "logo": "/imagens/logo-saude.png" }
+    { "id": 2, "nome": "Saúde Plus", "setor": "Saúde", "logo": "/imagens/logo-saude.png" },
+    { "id": 3, "nome": "Creative Design", "setor": "Design", "logo": "/imagens/logo-design.png" },
+    { "id": 4, "nome": "Fintech Br", "setor": "Financeiro", "logo": "/imagens/logo-fintech.png" },
+    { "id": 5, "nome": "EducaNet", "setor": "Educação", "logo": "/imagens/logo-educa.png" }
   ],
   "vagas": [
-    { "id": 1, "titulo": "Desenvolvedor Front-end", "descricao": "Vaga para dev React experiente.", "salario": 5000, "id_empresa": 1 },
-    { "id": 2, "titulo": "Enfermeiro(a)", "descricao": "Vaga para plantão noturno.", "salario": 4000, "id_empresa": 2 }
+    { "id": 1, "titulo": "Desenvolvedor Front-end", "descricao": "Vaga para dev React experiente.", "salario": 5000, "bolsa": "R$ 2.500", "id_empresa": 1, "localizacao": "São Paulo, SP", "tipo": "Estágio", "modalidade": "Híbrido", "categoria": "Tecnologia" },
+    { "id": 2, "titulo": "Enfermeiro(a)", "descricao": "Vaga para plantão noturno.", "salario": 4000, "bolsa": "R$ 1.800", "id_empresa": 2, "localizacao": "Rio de Janeiro, RJ", "tipo": "Estágio", "modalidade": "Presencial", "categoria": "Saúde" },
+    { "id": 3, "titulo": "UI/UX Designer", "descricao": "Auxiliar na criação de interfaces modernas.", "salario": 3500, "bolsa": "R$ 2.000", "id_empresa": 3, "localizacao": "Curitiba, PR", "tipo": "Estágio", "modalidade": "Remoto", "categoria": "Design" },
+    { "id": 4, "titulo": "Analista de Dados Júnior", "descricao": "Trabalhar com SQL e Python.", "salario": 6000, "bolsa": "R$ 3.000", "id_empresa": 1, "localizacao": "Belo Horizonte, MG", "tipo": "Estágio", "modalidade": "Remoto", "categoria": "Tecnologia" },
+    { "id": 5, "titulo": "Estágio em Marketing Digital", "descricao": "Gestão de redes sociais e tráfego pago.", "salario": 2000, "bolsa": "R$ 1.500", "id_empresa": 3, "localizacao": "São Paulo, SP", "tipo": "Estágio", "modalidade": "Híbrido", "categoria": "Marketing" },
+    { "id": 6, "titulo": "Assistente Financeiro", "descricao": "Apoio nas rotinas financeiras e planilhas.", "salario": 2500, "bolsa": "R$ 1.600", "id_empresa": 4, "localizacao": "Campinas, SP", "tipo": "Estágio", "modalidade": "Presencial", "categoria": "Financeiro" },
+    { "id": 7, "titulo": "Auxiliar de Ensino", "descricao": "Auxiliar professores no EAD.", "salario": 2000, "bolsa": "R$ 1.200", "id_empresa": 5, "localizacao": "Remoto", "tipo": "Estágio", "modalidade": "Remoto", "categoria": "Educação" },
+    { "id": 8, "titulo": "Engenheiro(a) Trainee", "descricao": "Vaga para trainee em engenharia civil.", "salario": 7000, "bolsa": "R$ 4.000", "id_empresa": 1, "localizacao": "Porto Alegre, RS", "tipo": "Estágio", "modalidade": "Presencial", "categoria": "Engenharia" },
+    { "id": 9, "titulo": "Assistente de RH", "descricao": "Rotinas de recrutamento e seleção.", "salario": 2500, "bolsa": "R$ 1.700", "id_empresa": 2, "localizacao": "São Paulo, SP", "tipo": "Estágio", "modalidade": "Híbrido", "categoria": "RH" }
   ],
   "candidatos": [
     { "id": 1, "nome": "João Silva", "email": "joao@email.com", "profissao": "Desenvolvedor" },
