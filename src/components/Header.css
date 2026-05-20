@@ -1,26 +1,48 @@
 .app-header {
+  background-color: var(--white);
+  border-bottom: 1px solid var(--border);
+  padding: 15px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
-  background-color: #f8f9fa;
-  border-bottom: 1px solid #dee2e6;
+}
+
+.logo h2 {
+  font-size: 24px;
 }
 
 .main-nav ul {
   list-style: none;
   display: flex;
-  gap: 15px;
+  gap: 30px;
   margin: 0;
   padding: 0;
 }
 
 .main-nav a {
   text-decoration: none;
-  color: #333;
-  font-weight: bold;
+  color: var(--text-dark);
+  font-weight: 600;
+  font-size: 14px;
+  transition: color 0.2s;
+  padding: 8px 12px;
+  border-radius: var(--radius-xl);
 }
 
-.main-nav a:hover {
-  color: #007bff;
+.main-nav a:hover, .main-nav a.active {
+  color: var(--primary);
+  background-color: #f3e8ff; /* Light purple bg for active/hover */
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
 }

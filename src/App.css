@@ -1,38 +1,162 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Typography Utilities */
+.text-gradient {
+  background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Button Utilities */
+.btn-primary {
+  background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: var(--radius-xl);
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.1s;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  gap: 8px;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: white;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  padding: 8px 16px;
+  border-radius: var(--radius-xl);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-secondary:hover {
+  background: var(--primary);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* Badges */
+.badge {
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  font-weight: 600;
+  display: inline-block;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.badge-purple {
+  background-color: #f3e8ff;
+  color: #7e22ce;
+}
+
+.badge-orange {
+  background-color: #ffedd5;
+  color: #c2410c;
+}
+
+.badge-green {
+  background-color: #dcfce7;
+  color: #15803d;
+}
+
+.badge-gray {
+  background-color: #f3f4f6;
+  color: #4b5563;
+}
+
+/* Job Card Utilities */
+.recent-jobs {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.job-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.job-card:hover {
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-2px);
+}
+
+.job-icon {
+  width: 50px;
+  height: 50px;
+  background: #f3f4f6;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+
+.job-details {
+  flex: 1;
+}
+
+.job-title {
+  margin: 0 0 4px 0;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.job-company {
+  color: var(--text-muted);
+  font-size: 14px;
+  margin: 0 0 12px 0;
+}
+
+.job-meta {
+  display: flex;
+  gap: 16px;
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.job-meta span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.job-badges {
+  display: flex;
+  gap: 8px;
+}
+
+.job-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
