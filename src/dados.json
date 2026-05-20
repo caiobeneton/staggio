@@ -1,0 +1,17 @@
+{
+  "empresas": [
+    { "id": 1, "nome": "Tech Corp", "setor": "Tecnologia", "logo": "/imagens/logo-tech.png" },
+    { "id": 2, "nome": "Saúde Plus", "setor": "Saúde", "logo": "/imagens/logo-saude.png" }
+  ],
+  "vagas": [
+    { "id": 1, "titulo": "Desenvolvedor Front-end", "descricao": "Vaga para dev React experiente.", "salario": 5000, "id_empresa": 1 },
+    { "id": 2, "titulo": "Enfermeiro(a)", "descricao": "Vaga para plantão noturno.", "salario": 4000, "id_empresa": 2 }
+  ],
+  "candidatos": [
+    { "id": 1, "nome": "João Silva", "email": "joao@email.com", "profissao": "Desenvolvedor" },
+    { "id": 2, "nome": "Maria Souza", "email": "maria@email.com", "profissao": "Enfermeira" }
+  ],
+  "candidaturas": [
+    { "id": 1, "id_vaga": 1, "id_candidato": 1 }
+  ]
+}
