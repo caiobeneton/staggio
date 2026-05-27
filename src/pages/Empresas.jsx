@@ -94,81 +94,88 @@ function Empresas({ empresas, setEmpresas, vagas, favoritos, toggleFavorito, can
             borderRadius: 'var(--radius-lg)',
             border: '1px solid var(--border)',
             boxShadow: 'var(--shadow-md)',
-            overflow: 'hidden'
+            overflow: 'hidden',
+            padding: '30px'
           }}>
-            {/* Cover Banner com Imagem Dinâmica e Object-Fit */}
+            {/* Split Header Container (Info on the left, building on the right) */}
             <div style={{
-              height: '160px',
-              position: 'relative',
-              overflow: 'hidden',
-              backgroundColor: '#f3f4f6'
+              display: 'grid',
+              gridTemplateColumns: '1.2fr 0.8fr',
+              gap: '24px',
+              marginBottom: '30px',
+              alignItems: 'start'
             }}>
-              <img 
-                src={getEmpresaImagem(empresaSelecionada.id)}
-                alt={`Fachada da empresa ${empresaSelecionada.nome}`}
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                  display: 'block'
-                }}
-              />
-            </div>
-
-            {/* Content Container */}
-            <div style={{ padding: '30px', position: 'relative' }}>
               
-              {/* Logo Flutuante */}
-              <div style={{
-                width: '80px',
-                height: '80px',
-                borderRadius: '16px',
-                background: 'white',
-                border: '4px solid white',
-                boxShadow: 'var(--shadow-md)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontSize: '36px',
-                fontWeight: 'bold',
-                color: 'var(--primary)',
-                position: 'absolute',
-                top: '-40px',
-                left: '30px'
-              }}>
-                {empresaSelecionada.nome.charAt(0)}
+              {/* Left Column: Corporate Info & Details */}
+              <div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '20px' }}>
+                  <div style={{
+                    width: '64px',
+                    height: '64px',
+                    borderRadius: '14px',
+                    background: 'linear-gradient(135deg, var(--primary), var(--secondary))',
+                    color: 'white',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontSize: '28px',
+                    fontWeight: 'bold',
+                    boxShadow: 'var(--shadow-md)'
+                  }}>
+                    {empresaSelecionada.nome.charAt(0)}
+                  </div>
+                  <div>
+                    <h2 style={{ margin: '0 0 4px 0', fontSize: '26px', fontWeight: 800 }}>{empresaSelecionada.nome}</h2>
+                    <span className="badge badge-purple" style={{ fontSize: '12px' }}>🏷️ {empresaSelecionada.setor}</span>
+                  </div>
+                </div>
+
+                {/* Vertical Details List (Stack style) */}
+                <div style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '12px',
+                  background: '#f9f9fb',
+                  padding: '16px 20px',
+                  borderRadius: 'var(--radius-md)',
+                  border: '1px solid var(--border)'
+                }}>
+                  <div>
+                    <span style={{ display: 'block', fontSize: '11px', color: 'var(--text-muted)', textTransform: 'uppercase', fontWeight: 600 }}>📍 Localização</span>
+                    <strong style={{ fontSize: '14px', color: 'var(--text-dark)' }}>{empresaSelecionada.localizacao || 'Não especificada'}</strong>
+                  </div>
+                  <div style={{ borderTop: '1px solid #eee', paddingTop: '8px' }}>
+                    <span style={{ display: 'block', fontSize: '11px', color: 'var(--text-muted)', textTransform: 'uppercase', fontWeight: 600 }}>🏢 Tamanho da Empresa</span>
+                    <strong style={{ fontSize: '14px', color: 'var(--text-dark)' }}>{empresaSelecionada.tamanho || 'Não especificado'}</strong>
+                  </div>
+                  <div style={{ borderTop: '1px solid #eee', paddingTop: '8px' }}>
+                    <span style={{ display: 'block', fontSize: '11px', color: 'var(--text-muted)', textTransform: 'uppercase', fontWeight: 600 }}>💼 Vagas Ativas</span>
+                    <strong style={{ fontSize: '14px', color: 'var(--text-dark)' }}>{vagasPublicadas.length} oportunidade(s)</strong>
+                  </div>
+                </div>
               </div>
 
-              {/* Informações Principais */}
-              <div style={{ marginTop: '35px', marginBottom: '24px' }}>
-                <h2 style={{ margin: '0 0 6px 0', fontSize: '28px' }}>{empresaSelecionada.nome}</h2>
-                <span className="badge badge-purple" style={{ fontSize: '13px' }}>🏷️ {empresaSelecionada.setor}</span>
-              </div>
-
-              {/* Grid de Detalhes Adicionais */}
+              {/* Right Column: Building Photo Card (Taller vertical space) */}
               <div style={{
-                display: 'grid',
-                gridTemplateColumns: '1fr 1fr 1fr',
-                gap: '15px',
-                marginBottom: '30px',
-                background: '#f9f9fb',
-                padding: '20px',
+                height: '240px',
                 borderRadius: 'var(--radius-md)',
-                border: '1px solid var(--border)'
+                overflow: 'hidden',
+                boxShadow: 'var(--shadow-sm)',
+                border: '1px solid var(--border)',
+                backgroundColor: '#f3f4f6'
               }}>
-                <div>
-                  <span style={{ display: 'block', fontSize: '11px', color: 'var(--text-muted)', textTransform: 'uppercase', fontWeight: 600 }}>📍 Localização</span>
-                  <strong style={{ fontSize: '14px', color: 'var(--text-dark)' }}>{empresaSelecionada.localizacao || 'Não especificada'}</strong>
-                </div>
-                <div>
-                  <span style={{ display: 'block', fontSize: '11px', color: 'var(--text-muted)', textTransform: 'uppercase', fontWeight: 600 }}>🏢 Tamanho</span>
-                  <strong style={{ fontSize: '14px', color: 'var(--text-dark)' }}>{empresaSelecionada.tamanho || 'Não especificado'}</strong>
-                </div>
-                <div>
-                  <span style={{ display: 'block', fontSize: '11px', color: 'var(--text-muted)', textTransform: 'uppercase', fontWeight: 600 }}>💼 Vagas Ativas</span>
-                  <strong style={{ fontSize: '14px', color: 'var(--text-dark)' }}>{vagasPublicadas.length} oportunidade(s)</strong>
-                </div>
+                <img 
+                  src={getEmpresaImagem(empresaSelecionada.id)}
+                  alt={`Fachada da empresa ${empresaSelecionada.nome}`}
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    display: 'block'
+                  }}
+                />
               </div>
+            </div>
 
               {/* Seção de Vagas Publicadas */}
               <div>
@@ -241,10 +248,8 @@ function Empresas({ empresas, setEmpresas, vagas, favoritos, toggleFavorito, can
                   )}
                 </div>
               </div>
-
             </div>
-          </div>
-        ) : (
+          ) : (
           <div style={{
             background: 'white',
             padding: '40px',
