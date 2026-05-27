@@ -1,5 +1,14 @@
 import React, { useState } from 'react';
 
+const getEmpresaImagem = (id) => {
+  if (id === 1) return '/imagens/empresa1.jpg';
+  if (id === 2) return '/imagens/emrpesa2.jpg'; // Contorna o erro de digitação do arquivo físico
+  if (id === 3) return '/imagens/empresa3.jpg';
+  if (id === 4) return '/imagens/empresa4.jpg';
+  if (id === 5) return '/imagens/empresa5.jpg';
+  return '/imagens/empresa1.jpg';
+};
+
 function Empresas({ empresas, setEmpresas, vagas, favoritos, toggleFavorito, candidatarSe, candidaturas }) {
   // Inicializa selecionando a primeira empresa da lista
   const [selectedEmpresaId, setSelectedEmpresaId] = useState(empresas.length > 0 ? empresas[0].id : null);
@@ -87,12 +96,24 @@ function Empresas({ empresas, setEmpresas, vagas, favoritos, toggleFavorito, can
             boxShadow: 'var(--shadow-md)',
             overflow: 'hidden'
           }}>
-            {/* Cover Banner */}
+            {/* Cover Banner com Imagem Dinâmica e Object-Fit */}
             <div style={{
-              height: '120px',
-              background: 'linear-gradient(135deg, var(--primary), var(--secondary))',
-              position: 'relative'
-            }}></div>
+              height: '160px',
+              position: 'relative',
+              overflow: 'hidden',
+              backgroundColor: '#f3f4f6'
+            }}>
+              <img 
+                src={getEmpresaImagem(empresaSelecionada.id)}
+                alt={`Fachada da empresa ${empresaSelecionada.nome}`}
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  display: 'block'
+                }}
+              />
+            </div>
 
             {/* Content Container */}
             <div style={{ padding: '30px', position: 'relative' }}>
