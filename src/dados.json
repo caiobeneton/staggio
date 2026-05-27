@@ -1,10 +1,10 @@
 {
   "empresas": [
-    { "id": 1, "nome": "Tech Corp", "setor": "Tecnologia", "logo": "/imagens/logo-tech.png" },
-    { "id": 2, "nome": "Saúde Plus", "setor": "Saúde", "logo": "/imagens/logo-saude.png" },
-    { "id": 3, "nome": "Creative Design", "setor": "Design", "logo": "/imagens/logo-design.png" },
-    { "id": 4, "nome": "Fintech Br", "setor": "Financeiro", "logo": "/imagens/logo-fintech.png" },
-    { "id": 5, "nome": "EducaNet", "setor": "Educação", "logo": "/imagens/logo-educa.png" }
+    { "id": 1, "nome": "Tech Corp", "setor": "Tecnologia", "logo": "/imagens/logo-tech.png", "localizacao": "São Paulo, SP", "tamanho": "500-1000 colaboradores" },
+    { "id": 2, "nome": "Saúde Plus", "setor": "Saúde", "logo": "/imagens/logo-saude.png", "localizacao": "Rio de Janeiro, RJ", "tamanho": "100-500 colaboradores" },
+    { "id": 3, "nome": "Creative Design", "setor": "Design", "logo": "/imagens/logo-design.png", "localizacao": "Curitiba, PR", "tamanho": "50-100 colaboradores" },
+    { "id": 4, "nome": "Fintech Br", "setor": "Financeiro", "logo": "/imagens/logo-fintech.png", "localizacao": "Campinas, SP", "tamanho": "200-500 colaboradores" },
+    { "id": 5, "nome": "EducaNet", "setor": "Educação", "logo": "/imagens/logo-educa.png", "localizacao": "Belo Horizonte, MG", "tamanho": "10-50 colaboradores" }
   ],
   "vagas": [
     { "id": 1, "titulo": "Desenvolvedor Front-end", "descricao": "Vaga para dev React experiente.", "salario": 5000, "bolsa": "R$ 2.500", "id_empresa": 1, "localizacao": "São Paulo, SP", "tipo": "Estágio", "modalidade": "Híbrido", "categoria": "Tecnologia" },

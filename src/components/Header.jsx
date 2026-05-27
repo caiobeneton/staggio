@@ -22,7 +22,8 @@ function Header() {
           <ul>
             <li><Link to="/" className={isActive('/')}>Início 🏠</Link></li>
             <li><Link to="/vagas" className={isActive('/vagas')}>Estágios 🎓</Link></li>
-            <li><Link to="/empresas" className={isActive('/empresas')}>Minha Área ⭐</Link></li>
+            <li><Link to="/empresas" className={isActive('/empresas')}>Empresas 🏢</Link></li>
+            <li><Link to="/minha-area" className={isActive('/minha-area')}>Minha Área ⭐</Link></li>
             <li><Link to="/vagas/editar/novo" className={isActive('/vagas/editar/novo')}>Publicar 📢</Link></li>
           </ul>
         </nav>

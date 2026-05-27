@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Home.css';
 
-function Home({ vagas, empresas, candidatos, candidaturas }) {
+function Home({ vagas, empresas, candidatos, candidaturas, favoritos, toggleFavorito, candidatarSe }) {
   const [categoriaSelecionada, setCategoriaSelecionada] = useState(null);
 
   // Filtra as vagas se tiver categoria selecionada, senão pega as recentes
@@ -102,27 +102,55 @@ function Home({ vagas, empresas, candidatos, candidaturas }) {
 
       <div className="recent-jobs">
         {vagasParaExibir.length > 0 ? (
-          vagasParaExibir.map(vaga => (
-            <div key={vaga.id} className="job-card">
-              <div className="job-icon">🏢</div>
-              <div className="job-details">
-                <h3 className="job-title">{vaga.titulo}</h3>
-                <p className="job-company">{vaga.empresaId ? 'Empresa parceira' : 'Empresa parceira'}</p>
-                
-                <div className="job-meta">
-                  <span>📍 {vaga.localizacao || 'Brasil'}</span>
-                  <span>💰 {vaga.bolsa || 'A combinar'}</span>
-                  <span>🕒 14 mai</span>
+          vagasParaExibir.map(vaga => {
+            const empresa = empresas.find(e => e.id === vaga.id_empresa);
+            const empresaNome = empresa ? empresa.nome : 'Empresa parceira';
+            const isFav = favoritos.includes(vaga.id);
+            const jaCandidatado = candidaturas.some(c => c.id_vaga === vaga.id && c.id_candidato === 1);
+
+            return (
+              <div key={vaga.id} className="job-card">
+                <div className="job-icon">🏢</div>
+                <div className="job-details">
+                  <h3 className="job-title">{vaga.titulo}</h3>
+                  <p className="job-company">{empresaNome}</p>
+                  
+                  <div className="job-meta">
+                    <span>📍 {vaga.localizacao || 'Brasil'}</span>
+                    <span>💰 {vaga.bolsa || 'A combinar'}</span>
+                    <span>🕒 14 mai</span>
+                  </div>
+                  
+                  <div className="job-badges">
+                    <span className="badge badge-purple">{vaga.tipo || 'CLT'}</span>
+                    <span className="badge badge-orange">{vaga.modalidade || 'Presencial'}</span>
+                    {vaga.categoria && <span className="badge badge-gray">{vaga.categoria}</span>}
+                  </div>
                 </div>
                 
-                <div className="job-badges">
-                  <span className="badge badge-purple">{vaga.tipo || 'CLT'}</span>
-                  <span className="badge badge-orange">{vaga.modalidade || 'Presencial'}</span>
-                  {vaga.categoria && <span className="badge badge-gray">{vaga.categoria}</span>}
+                <div className="job-actions" style={{ display: 'flex', flexDirection: 'column', gap: '8px', alignItems: 'flex-end' }}>
+                  <button 
+                    onClick={() => toggleFavorito(vaga.id)} 
+                    style={{ background: 'none', border: 'none', fontSize: '20px', cursor: 'pointer', transition: '0.2s', padding: '4px' }}
+                    title={isFav ? "Remover dos favoritos" : "Adicionar aos favoritos"}
+                  >
+                    {isFav ? '❤️' : '🤍'}
+                  </button>
+                  {jaCandidatado ? (
+                    <span className="badge badge-green">✓ Candidatado</span>
+                  ) : (
+                    <button 
+                      onClick={() => candidatarSe(vaga.id)} 
+                      className="btn-primary" 
+                      style={{ padding: '6px 12px', fontSize: '12px', whiteSpace: 'nowrap' }}
+                    >
+                      Candidatar-se
+                    </button>
+                  )}
                 </div>
               </div>
-            </div>
-          ))
+            );
+          })
         ) : (
           <div style={{ textAlign: 'center', padding: '40px', color: 'var(--text-muted)', background: 'white', borderRadius: 'var(--radius-md)' }}>
             Nenhuma vaga encontrada para esta categoria no momento.
